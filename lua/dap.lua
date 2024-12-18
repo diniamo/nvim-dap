@@ -622,6 +622,17 @@ function M.run(config, opts)
 end
 
 
+--- Run the last debug session, and return false if there wasn't one
+function M.try_run_last()
+  if last_run then
+    M.run(last_run.config, last_run.opts)
+    return true
+  else
+    return false
+  end
+end
+
+
 --- Run the last debug session again
 function M.run_last()
   if last_run then
